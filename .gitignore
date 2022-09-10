@@ -1,0 +1,12 @@
+*.log
+.DS_Store
+node_modules
+dist
+.idea
+*~
+.*.swp
+.parcel-cache
+.tool-versions
+.npmrc
+
+tsconfig.tsbuildinfo
