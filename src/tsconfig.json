@@ -2,7 +2,6 @@
   "extends": "..",
   "include": ["./**/*.ts"],
   "compilerOptions": {
-    "outDir": "../dist",
-    "esModuleInterop": true
+    "outDir": "../dist"
   }
 }
