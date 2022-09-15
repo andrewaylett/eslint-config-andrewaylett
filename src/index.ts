@@ -150,6 +150,8 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
                 '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
         },
     ],
+    'unicorn/prevent-abbreviations': 0,
+    'unicorn/consistent-function-scoping': 0,
 };
 
 // noinspection JSUnusedGlobalSymbols,ReservedWordAsName
