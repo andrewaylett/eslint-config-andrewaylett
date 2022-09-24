@@ -17,30 +17,48 @@
 import { Linter } from 'eslint';
 import { ESLintRules } from 'eslint/rules';
 
+const HAS_JEST = (() => {
+    try {
+        require.resolve('jest');
+        return true;
+    } catch {
+        return false;
+    }
+})();
+
+const jest_plugin = HAS_JEST ? ['jest', 'jest-formatting'] : [];
+
+// noinspection JSUnusedGlobalSymbols
 const parser: Linter.Config<ESLintRules>['parser'] =
     '@typescript-eslint/parser';
+
+// noinspection JSUnusedGlobalSymbols
 const plugins: Linter.Config<ESLintRules>['plugins'] = [
     '@typescript-eslint',
     'prettier',
     'eslint-comments',
     'import',
-    'jest',
-    'jest-formatting',
+    ...jest_plugin,
     'sort-destructure-keys',
     'typescript-enum',
 ];
+
+const jest_extends = HAS_JEST
+    ? ['plugin:jest/recommended', 'plugin:jest-formatting/strict']
+    : [];
 
 const extend_s: Linter.Config<ESLintRules>['extends'] = [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
-    'plugin:jest/recommended',
-    'plugin:jest-formatting/strict',
+    ...jest_extends,
     'plugin:import/typescript',
     'plugin:typescript-enum/recommended',
     'prettier',
 ];
+
+// noinspection JSUnusedGlobalSymbols
 const rules: Linter.Config<ESLintRules>['rules'] = {
     'prettier/prettier': 2,
     '@typescript-eslint/no-unused-vars': [
@@ -110,7 +128,7 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
     'sort-destructure-keys/sort-destructure-keys': 'error',
 
     // Ensure consistent use of file extension within the import path
-    // The airbnb config we extend does not support TypeScript so we override it here
+    // The airbnb config we extend does not support TypeScript, so we override it here
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
     'import/extensions': [
         'error',

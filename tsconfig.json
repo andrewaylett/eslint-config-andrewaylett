@@ -4,9 +4,6 @@
   "references": [
     {
       "path": "src"
-    },
-    {
-      "path": "test"
     }
   ],
   "files": [],
@@ -16,12 +13,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    // linter checks for common issues
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "tsBuildInfoFile": "build/base.tsBuildInfo"
   }
 }
