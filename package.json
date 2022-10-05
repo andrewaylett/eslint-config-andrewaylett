@@ -28,9 +28,8 @@
     "pretest": "npm run lint",
     "lint:fix": "npm run lint -- --fix",
     "dev": "npm run lint:fix && npm run build",
-    "prepublishOnly": "npm run build",
     "clean": "rm -rf ./dist ./build",
-    "postinstall": "npm run clean"
+    "prepare": "npm run clean && npm run buildonly"
   },
   "prettier": {
     "semi": true,
