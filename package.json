@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@tsconfig/node16": "1.0.3",
-    "@types/eslint": "8.4.6",
+    "@types/eslint": "8.4.7",
     "@types/node": "16.11.68",
     "@types/semver": "7.3.12",
     "downgrade-build": "0.1.0",
