@@ -40,7 +40,7 @@
     "@tsconfig/node16": "1.0.3",
     "@types/eslint": "8.4.8",
     "@types/node": "18.11.7",
-    "@types/semver": "7.3.12",
+    "@types/semver": "7.3.13",
     "downgrade-build": "0.1.0",
     "prepackage-checks": "0.1.2",
     "prettier": "2.7.1",
