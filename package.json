@@ -41,7 +41,7 @@
     "@types/eslint": "8.4.10",
     "@types/node": "18.11.18",
     "@types/semver": "7.3.13",
-    "downgrade-build": "0.1.0",
+    "downgrade-build": "0.2.0",
     "prepackage-checks": "0.1.2",
     "prettier": "2.8.1",
     "semver": "7.3.8",
