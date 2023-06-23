@@ -44,7 +44,7 @@
     "downgrade-build": "1.0.0",
     "prepackage-checks": "0.1.2",
     "prettier": "2.8.8",
-    "semver": "7.5.2",
+    "semver": "7.5.3",
     "typescript": "5.1.3"
   },
   "peerDependencies": {
