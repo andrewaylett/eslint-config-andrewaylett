@@ -45,7 +45,7 @@
     "prepackage-checks": "0.1.2",
     "prettier": "2.8.8",
     "semver": "7.5.3",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.38.0",
