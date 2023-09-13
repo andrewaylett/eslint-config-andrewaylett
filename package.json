@@ -40,7 +40,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
-    "@tsconfig/node18": "18.2.1",
+    "@tsconfig/node18": "18.2.2",
     "@types/eslint": "8.44.2",
     "@types/node": "18.17.15",
     "@types/semver": "7.5.1",
