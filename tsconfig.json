@@ -9,7 +9,6 @@
   "files": [],
   "compilerOptions": {
     "composite": true,
-    "module": "CommonJS",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
