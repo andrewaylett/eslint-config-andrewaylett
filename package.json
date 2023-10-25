@@ -42,7 +42,7 @@
   "devDependencies": {
     "@tsconfig/node18": "18.2.2",
     "@types/eslint": "8.44.6",
-    "@types/node": "20.8.8",
+    "@types/node": "20.8.9",
     "@types/semver": "7.5.4",
     "downgrade-build": "1.0.0",
     "prepackage-checks": "0.1.2",
