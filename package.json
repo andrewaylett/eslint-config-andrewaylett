@@ -57,7 +57,7 @@
     "eslint-config-prettier": "^8 || ^9.0.0",
     "eslint-plugin-eslint-comments": "^3",
     "eslint-plugin-import": "^2.26",
-    "eslint-plugin-jest": "^27",
+    "eslint-plugin-jest": "^27 || ^28.0.0",
     "eslint-plugin-jest-formatting": "^3",
     "eslint-plugin-prettier": "^5",
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
