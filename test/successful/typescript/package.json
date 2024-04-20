@@ -1,0 +1,7 @@
+{
+  "name": "empty",
+  "devDependencies": {
+    "eslint": "^8",
+    "typescript": "^5"
+  }
+}

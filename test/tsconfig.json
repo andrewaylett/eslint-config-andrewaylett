@@ -1,0 +1,8 @@
+{
+  "extends": "..",
+  "include": ["./**/*.mts", "./**/*.ts"],
+  "compilerOptions": {
+    "noEmit": true,
+    "tsBuildInfoFile": "../build/test.tsbuildinfo"
+  }
+}

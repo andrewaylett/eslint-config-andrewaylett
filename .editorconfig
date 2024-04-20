@@ -9,6 +9,12 @@ insert_final_newline = true
 max_line_length = 80
 tab_width = 4
 trim_trailing_whitespace = true
+ij_typescript_align_multiline_parameters = false
+ij_typescript_align_multiline_parameters_in_calls = false
+ij_typescript_force_quote_style = true
+ij_typescript_force_semicolon_style = true
+ij_typescript_use_double_quotes = false
+ij_typescript_use_semicolon_after_statement = true
 
 [{*.json,*.yml,*.yaml}]
 indent_size = 2

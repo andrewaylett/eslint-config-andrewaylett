@@ -1,2 +1,4 @@
 dist
 build
+test/successful
+test/failing

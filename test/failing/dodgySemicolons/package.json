@@ -1,0 +1,7 @@
+{
+  "name": "dodgy-semicolons",
+  "description": "A project that should not pass",
+  "devDependencies": {
+    "eslint": "^8"
+  }
+}

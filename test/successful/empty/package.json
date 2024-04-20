@@ -1,0 +1,6 @@
+{
+  "name": "empty",
+  "devDependencies": {
+    "eslint": "^8"
+  }
+}

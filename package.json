@@ -16,23 +16,24 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
     "build": "npm run buildonly",
     "buildonly": "tsc -b --verbose .",
-    "test": "downgrade-build build",
-    "postbuild": "prepackage-checks",
-    "prelint": "npm run buildonly",
-    "lint": "eslint .",
-    "prebuild": "npm run test",
-    "pretest": "npm run lint",
-    "lint:fix": "npm run lint -- --fix",
-    "dev": "npm run lint:fix && npm run build",
     "clean": "rm -rf ./dist ./build",
-    "prepare": "npm run clean && npm run buildonly"
+    "dev": "npm run lint:fix && npm run build",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "postbuild": "prepackage-checks",
+    "posttest": "downgrade-build build",
+    "prebuild": "npm run test",
+    "prelint": "npm run buildonly",
+    "prepare": "npm run clean && npm run buildonly",
+    "pretest": "npm run lint",
+    "test": "node --loader ts-node/esm test/runner.mts"
   },
   "prettier": {
     "semi": true,
@@ -45,9 +46,12 @@
     "@types/node": "20.12.7",
     "@types/semver": "7.5.8",
     "downgrade-build": "1.0.0",
+    "extend-expect": "3.0.0",
     "prepackage-checks": "0.1.2",
     "prettier": "3.2.5",
     "semver": "7.6.0",
+    "test-in-build": "0.2.0",
+    "ts-node": "10.9.2",
     "typescript": "5.4.5"
   },
   "peerDependencies": {
@@ -55,9 +59,9 @@
     "@typescript-eslint/parser": "^6.0.0 || ^7.0.0",
     "eslint": "^8 || ^9.0.0",
     "eslint-config-prettier": "^8 || ^9.0.0",
-    "eslint-plugin-eslint-comments": "^3",
-    "eslint-plugin-import": "^2.26",
-    "eslint-plugin-jest": "^27 || ^28.0.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.6.1 || ^28.0.0",
     "eslint-plugin-jest-formatting": "^3",
     "eslint-plugin-prettier": "^5",
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
@@ -66,6 +70,9 @@
   },
   "peerDependenciesMeta": {
     "jest": {
+      "optional": true
+    },
+    "typescript": {
       "optional": true
     }
   }

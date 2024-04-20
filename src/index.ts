@@ -17,57 +17,69 @@
 import { Linter } from 'eslint';
 import { ESLintRules } from 'eslint/rules';
 
-const HAS_JEST = (() => {
-    try {
-        require.resolve('jest');
-        return true;
-    } catch {
-        return false;
-    }
-})();
+import { findPackage } from './autoDetect';
+
+const HAS_JEST: boolean = findPackage('jest');
+
+const HAS_TYPESCRIPT: boolean = findPackage('typescript');
 
 const jest_plugin = HAS_JEST ? ['jest', 'jest-formatting'] : [];
+const ts_plugin = HAS_TYPESCRIPT
+    ? ['@typescript-eslint', 'typescript-enum']
+    : [];
 
 // noinspection JSUnusedGlobalSymbols
-const parser: Linter.Config<ESLintRules>['parser'] =
-    '@typescript-eslint/parser';
+const parser: Linter.Config<ESLintRules>['parser'] = HAS_TYPESCRIPT
+    ? '@typescript-eslint/parser'
+    : undefined;
 
 // noinspection JSUnusedGlobalSymbols
 const plugins: Linter.Config<ESLintRules>['plugins'] = [
-    '@typescript-eslint',
+    ...ts_plugin,
     'prettier',
     'eslint-comments',
     'import',
     ...jest_plugin,
     'sort-destructure-keys',
-    'typescript-enum',
 ];
 
 const jest_extends = HAS_JEST
     ? ['plugin:jest/recommended', 'plugin:jest-formatting/strict']
     : [];
 
+const ts_extends = HAS_TYPESCRIPT
+    ? [
+          'plugin:@typescript-eslint/strict-type-checked',
+          'plugin:@typescript-eslint/stylistic-type-checked',
+          'plugin:import/typescript',
+          'plugin:typescript-enum/recommended',
+      ]
+    : [];
+
 const extend_s: Linter.Config<ESLintRules>['extends'] = [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    ...ts_extends,
     'plugin:eslint-comments/recommended',
     ...jest_extends,
-    'plugin:import/typescript',
-    'plugin:typescript-enum/recommended',
     'prettier',
 ];
+
+const ts_rules: Linter.Config<ESLintRules>['rules'] = HAS_TYPESCRIPT
+    ? {
+          '@typescript-eslint/no-unused-vars': [
+              'error',
+              {
+                  destructuredArrayIgnorePattern: '^_',
+                  varsIgnorePattern: '^_',
+              },
+          ],
+      }
+    : {};
 
 // noinspection JSUnusedGlobalSymbols
 const rules: Linter.Config<ESLintRules>['rules'] = {
     'prettier/prettier': 2,
-    '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-            destructuredArrayIgnorePattern: '^_',
-            varsIgnorePattern: '^_',
-        },
-    ],
+    ...ts_rules,
     'import/prefer-default-export': 0,
     'no-use-before-define': 0,
     // Enforce a convention in the order of require/import statements
@@ -172,5 +184,10 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
     'unicorn/consistent-function-scoping': 0,
 };
 
+// noinspection JSUnusedGlobalSymbols
+const parserOptions: Linter.Config<ESLintRules>['parserOptions'] = {
+    project: HAS_TYPESCRIPT,
+};
+
 // noinspection JSUnusedGlobalSymbols,ReservedWordAsName
-export { parser, plugins, extend_s as extends, rules };
+export { parser, parserOptions, plugins, extend_s as extends, rules };
