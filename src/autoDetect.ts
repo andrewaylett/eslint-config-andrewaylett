@@ -11,9 +11,9 @@ interface Dependencies {
     resolved: string;
     integrity: string;
     dev?: boolean;
-    dependencies?: Record<string, string>;
-    devDependencies?: Record<string, string>;
-    peerDependencies?: Record<string, string>;
+    dependencies?: Record<string, string | undefined>;
+    devDependencies?: Record<string, string | undefined>;
+    peerDependencies?: Record<string, string | undefined>;
 }
 
 // Reads package-lock.json and traverses the dependency tree looking for the package

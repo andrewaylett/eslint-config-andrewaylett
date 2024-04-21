@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { Linter } from 'eslint';
-import { ESLintRules } from 'eslint/rules';
-
 import { findPackage } from './autoDetect';
+
+import type { Linter } from 'eslint';
+import type { ESLintRules } from 'eslint/rules';
 
 const HAS_JEST: boolean = findPackage('jest');
 
@@ -73,6 +73,7 @@ const ts_rules: Linter.Config<ESLintRules>['rules'] = HAS_TYPESCRIPT
                   varsIgnorePattern: '^_',
               },
           ],
+          '@typescript-eslint/consistent-type-imports': 'error',
       }
     : {};
 
