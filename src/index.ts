@@ -59,6 +59,13 @@ const rules: Partial<ESLintRules> = {
             varsIgnorePattern: '^_',
         },
     ],
+    '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        {
+            allowNumber: true,
+            allowBoolean: true,
+        },
+    ],
     'import/prefer-default-export': ['off'],
     'no-use-before-define': ['off'],
     // Enforce a convention in the order of require/import statements
