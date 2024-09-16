@@ -68,6 +68,13 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
             varsIgnorePattern: '^_',
         },
     ],
+    '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        {
+            allowNumber: true,
+            allowBoolean: true,
+        },
+    ],
     'import/prefer-default-export': 0,
     'no-use-before-define': 0,
     // Enforce a convention in the order of require/import statements
