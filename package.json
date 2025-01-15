@@ -54,7 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0 || ^7.0.0 || ^8.0.0",
     "@typescript-eslint/parser": "^6.0.0 || ^7.0.0 || ^8.0.0",
     "eslint": "^8 || ^9.0.0",
-    "eslint-config-prettier": "^8 || ^9.0.0",
+    "eslint-config-prettier": "^8 || ^9.0.0 || ^10.0.0",
     "eslint-plugin-eslint-comments": "^3",
     "eslint-plugin-import": "^2.26",
     "eslint-plugin-jest": "^27 || ^28.0.0",
