@@ -1,0 +1,13 @@
+*.log
+build
+!dist
+.idea
+.parcel-cache
+.tool-versions
+.npmrc
+.editorconfig
+.gitattributes
+.github
+.gitignore
+.pre-commit-config.yaml
+renovate.json

@@ -48,6 +48,8 @@
     "@types/eslint__eslintrc": "2.1.2",
     "@types/node": "22.10.7",
     "@types/semver": "7.5.8",
+    "@typescript-eslint/eslint-plugin": "8.21.0",
+    "@typescript-eslint/parser": "8.21.0",
     "downgrade-build": "1.0.0",
     "eslint": "9.18.0",
     "eslint-config-prettier": "10.0.1",
