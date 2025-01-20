@@ -14,53 +14,44 @@
  * limitations under the License.
  */
 
-import { Linter } from 'eslint';
-import { ESLintRules } from 'eslint/rules';
+import path from 'node:path';
+import { fileURLToPath } from 'url';
 
-const HAS_JEST = (() => {
+import js from '@eslint/js';
+import { Linter } from 'eslint';
+import { FlatCompat } from '@eslint/eslintrc';
+import prettier_required from 'eslint-plugin-prettier/recommended';
+import typescript_parser from '@typescript-eslint/parser';
+
+import type { ESLintRules } from 'eslint/rules';
+
+// mimic CommonJS variables -- not needed if using CommonJS
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+});
+
+const HAS_JEST = await (async () => {
     try {
-        require.resolve('jest');
+        await import('jest');
         return true;
     } catch {
         return false;
     }
 })();
 
-const jest_plugin = HAS_JEST ? ['jest', 'jest-formatting'] : [];
+const jest_plugin: string[] = HAS_JEST ? ['jest', 'jest-formatting'] : [];
 
 // noinspection JSUnusedGlobalSymbols
-const parser: Linter.Config<ESLintRules>['parser'] =
-    '@typescript-eslint/parser';
-
-// noinspection JSUnusedGlobalSymbols
-const plugins: Linter.Config<ESLintRules>['plugins'] = [
-    '@typescript-eslint',
-    'prettier',
-    'eslint-comments',
-    'import',
-    ...jest_plugin,
-    'sort-destructure-keys',
-    'typescript-enum',
-];
-
-const jest_extends = HAS_JEST
+const jest_extends: string[] = HAS_JEST
     ? ['plugin:jest/recommended', 'plugin:jest-formatting/strict']
     : [];
 
-const extend_s: Linter.Config<ESLintRules>['extends'] = [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:eslint-comments/recommended',
-    ...jest_extends,
-    'plugin:import/typescript',
-    'plugin:typescript-enum/recommended',
-    'prettier',
-];
-
 // noinspection JSUnusedGlobalSymbols
-const rules: Linter.Config<ESLintRules>['rules'] = {
-    'prettier/prettier': 2,
+const rules: Partial<ESLintRules> = {
+    'prettier/prettier': ['error'],
     '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -68,8 +59,8 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
             varsIgnorePattern: '^_',
         },
     ],
-    'import/prefer-default-export': 0,
-    'no-use-before-define': 0,
+    'import/prefer-default-export': ['off'],
+    'no-use-before-define': ['off'],
     // Enforce a convention in the order of require/import statements
     // See https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
     // Order:
@@ -125,31 +116,32 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
 
     // Require object destructure key to be sorted
     // https://github.com/mthadley/eslint-plugin-sort-destructure-keys
-    'sort-destructure-keys/sort-destructure-keys': 'error',
+    'sort-destructure-keys/sort-destructure-keys': ['error'],
 
     // Ensure consistent use of file extension within the import path
     // The airbnb config we extend does not support TypeScript, so we override it here
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
-    'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-            js: 'never',
-            jsx: 'never',
-            mjs: 'never',
-            ts: 'never',
-            tsx: 'never',
-        },
-    ],
+    // Unfortunately Node.js in ESM mode doesn't seem to be consistent in what it wants to see
+    // 'import/extensions': [
+    //     'error',
+    //     'ignorePackages',
+    //     {
+    //         js: 'never',
+    //         jsx: 'never',
+    //         mjs: 'never',
+    //         ts: 'never',
+    //         tsx: 'never',
+    //     },
+    // ],
 
     // Additional ESLint rules for directive comments of ESLint
     // See: https://github.com/mysticatea/eslint-plugin-eslint-comments
     'eslint-comments/disable-enable-pair': ['warn', { allowWholeFile: true }],
-    'eslint-comments/no-aggregating-enable': 'warn',
-    'eslint-comments/no-duplicate-disable': 'warn',
-    'eslint-comments/no-unlimited-disable': 'warn',
-    'eslint-comments/no-unused-disable': 'warn',
-    'eslint-comments/no-unused-enable': 'warn',
+    'eslint-comments/no-aggregating-enable': ['warn'],
+    'eslint-comments/no-duplicate-disable': ['warn'],
+    'eslint-comments/no-unlimited-disable': ['warn'],
+    'eslint-comments/no-unused-disable': ['warn'],
+    'eslint-comments/no-unused-enable': ['warn'],
     'no-restricted-syntax': [
         'error',
         {
@@ -168,9 +160,34 @@ const rules: Linter.Config<ESLintRules>['rules'] = {
                 '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
         },
     ],
-    'unicorn/prevent-abbreviations': 0,
-    'unicorn/consistent-function-scoping': 0,
-};
+    'unicorn/prevent-abbreviations': ['off'],
+    'unicorn/consistent-function-scoping': ['off'],
+} satisfies Partial<ESLintRules>;
 
 // noinspection JSUnusedGlobalSymbols,ReservedWordAsName
-export { parser, plugins, extend_s as extends, rules };
+export default [
+    js.configs.recommended,
+    ...compat.plugins(
+        '@typescript-eslint',
+        'eslint-comments',
+        ...jest_plugin,
+        'import',
+        'sort-destructure-keys',
+        'typescript-enum',
+    ),
+    ...compat.extends(
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:eslint-comments/recommended',
+        ...jest_extends,
+        'plugin:import/typescript',
+        'plugin:typescript-enum/recommended',
+    ),
+    prettier_required,
+    {
+        languageOptions: {
+            parser: typescript_parser,
+        },
+        rules,
+    } satisfies Linter.Config,
+] satisfies Linter.Config[];

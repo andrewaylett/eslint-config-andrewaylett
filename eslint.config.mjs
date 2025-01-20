@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
+import eslintConfigAndrewAylett from './dist/index.js';
+
+// noinspection JSUnusedGlobalSymbols
 /**
- * @type {import('eslint').Linter.Config}
+ * @type {import('eslint').Linter.FlatConfig[]}
  */
-// eslint-disable-next-line no-undef
-module.exports = {
-    root: true,
-    extends: ['.'],
-};
+export default [
+    ...eslintConfigAndrewAylett,
+    {
+        ignores: ['dist/**', 'build/**'],
+    },
+];
