@@ -4,16 +4,17 @@
   "author": "Andrew Aylett",
   "version": "3.1.0",
   "license": "Apache-2.0",
+  "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/andrewaylett/eslint-config-andrewaylett.git"
   },
   "source": "src/index.ts",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -40,26 +41,40 @@
     "trailingComma": "all"
   },
   "devDependencies": {
-    "@tsconfig/node18": "18.2.4",
-    "@types/eslint": "8.56.12",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.18.0",
+    "@tsconfig/node20": "20.1.4",
+    "@types/eslint": "9.6.1",
+    "@types/eslint__eslintrc": "2.1.2",
     "@types/node": "22.10.7",
     "@types/semver": "7.5.8",
     "downgrade-build": "1.0.0",
+    "eslint": "9.18.0",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jest": "28.11.0",
+    "eslint-plugin-jest-formatting": "3.1.0",
+    "eslint-plugin-prettier": "5.2.3",
+    "eslint-plugin-sort-destructure-keys": "2.0.0",
+    "eslint-plugin-typescript-enum": "2.1.0",
+    "eslint-plugin-unicorn": "56.0.1",
     "prepackage-checks": "0.1.2",
     "prettier": "3.4.2",
     "semver": "7.6.3",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "typescript-eslint": "8.21.0"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "@typescript-eslint/parser": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "eslint": "^8 || ^9.0.0",
-    "eslint-config-prettier": "^8 || ^9.0.0 || ^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0 || ^8.0.0",
+    "@typescript-eslint/parser": "^7.0.0 || ^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0 || ^10.0.0",
     "eslint-plugin-eslint-comments": "^3",
     "eslint-plugin-import": "^2.26",
-    "eslint-plugin-jest": "^27 || ^28.0.0",
+    "eslint-plugin-jest": "^28",
     "eslint-plugin-jest-formatting": "^3",
-    "eslint-plugin-prettier": "^5",
+    "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-sort-destructure-keys": "^1.4.0 || ^2.0.0",
     "eslint-plugin-typescript-enum": "^2.1",
     "eslint-plugin-unicorn": ">=1 <=56"
