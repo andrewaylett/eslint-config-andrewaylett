@@ -46,7 +46,7 @@
     "@tsconfig/node20": "20.1.4",
     "@types/eslint": "9.6.1",
     "@types/eslint__eslintrc": "2.1.2",
-    "@types/node": "22.10.8",
+    "@types/node": "22.10.9",
     "@types/semver": "7.5.8",
     "@typescript-eslint/eslint-plugin": "8.21.0",
     "@typescript-eslint/parser": "8.21.0",
