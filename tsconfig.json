@@ -1,20 +1,19 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "tsBuildInfoFile": "build/base.tsBuildInfo"
+  },
   "extends": "@tsconfig/node20/tsconfig.json",
+  "files": [],
   "references": [
     {
       "path": "src"
     }
-  ],
-  "files": [],
-  "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "tsBuildInfoFile": "build/base.tsBuildInfo"
-  }
+  ]
 }
