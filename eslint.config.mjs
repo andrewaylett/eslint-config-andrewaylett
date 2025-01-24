@@ -24,6 +24,9 @@ import eslintConfigAndrewAylett from './dist/index.js';
  */
 export default [
     {
+        files: ['**/*.ts', '**/*.js'],
+    },
+    {
         languageOptions: {
             parserOptions: {
                 project: true,
