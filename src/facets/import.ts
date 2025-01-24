@@ -1,5 +1,5 @@
 import importPlugin from 'eslint-plugin-import';
-import { Linter } from 'eslint';
+import { type Linter } from 'eslint';
 
 import { merge } from '../merge.js';
 

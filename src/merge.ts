@@ -1,5 +1,6 @@
+import { type Linter } from 'eslint';
+
 import { type Recommended } from './presets.js';
-import { Linter } from 'eslint';
 
 export function merge(
     name: string,
@@ -30,7 +31,7 @@ export function merge(
 export function mergeConfig<K extends Recommended>(
     key: K,
     configArray: Linter.Config[],
-): { [J in K]: Linter.Config } {
+): Record<K, Linter.Config> {
     const mergedConfig = merge(key, configArray);
-    return { [key]: mergedConfig } as { [J in K]: Linter.Config };
+    return { [key]: mergedConfig } as Record<K, Linter.Config>;
 }

@@ -1,15 +1,15 @@
-import { type Rule } from 'eslint';
+import { type Rule, type JSSyntaxElement } from 'eslint';
 
 export const noEnumRule: Rule.RuleModule = {
     create(context) {
         return {
-            TSEnumDeclaration(node) {
+            TSEnumDeclaration(node: JSSyntaxElement) {
                 context.report({
                     node,
                     messageId: 'noEnum',
                 });
             },
-        };
+        } satisfies Rule.RuleListener;
     },
     meta: {
         docs: {

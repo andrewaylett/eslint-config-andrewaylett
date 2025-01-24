@@ -1,10 +1,9 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import tseslint from 'typescript-eslint';
+import { type Linter } from 'eslint';
 
 import { merge } from '../merge.js';
 
 import { importTsRules } from './import.js';
-import { Linter } from 'eslint';
 
 export const typescript = merge('typescript', [
     ...(tseslint.configs.strict as Linter.Config[]),
@@ -24,18 +23,22 @@ export const typescript = merge('typescript', [
                 'error',
                 { fixStyle: 'inline-type-imports' },
             ],
+            '@typescript-eslint/restrict-template-expressions': [
+                'error',
+                {
+                    allowNumber: true,
+                    allowBoolean: true,
+                },
+            ],
         },
     },
 ]);
 
-export const typescriptTyped = merge(
-    'typescript-with-types',
-    [
-        ...(tseslint.configs.strictTypeCheckedOnly as Linter.Config[]),
-        ...(tseslint.configs.stylisticTypeCheckedOnly as Linter.Config[]),
-        {
-            // No customisation at present
-            rules: {},
-        },
-    ],
-);
+export const typescriptTyped = merge('typescript-with-types', [
+    ...(tseslint.configs.strictTypeCheckedOnly as Linter.Config[]),
+    ...(tseslint.configs.stylisticTypeCheckedOnly as Linter.Config[]),
+    {
+        // No customisation at present
+        rules: {},
+    },
+]);

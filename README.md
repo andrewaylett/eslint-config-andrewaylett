@@ -32,8 +32,12 @@ In your `eslint.config.js`:
 import andrewaylett from 'eslint-config-andrewaylett';
 
 export default [
+    // Make sure you include your files
+    {
+        files: ['*.ts'],
+    },
     // Pick a suitable config
-    andrewaylett.configs.recommendedWithTypes,
+    andrewaylett.configs.recommended,
     // ... other configs
 ];
 ```
@@ -44,7 +48,13 @@ on top of that there are modifiers `withJest`,
 If you specify `withTypes` then you must configure a suitable parser:
 
 ```js
+import andrewaylett from 'eslint-config-andrewaylett';
+
 export default [
+    // Make sure you include your files
+    {
+        files: ['*.ts', '*.tsx'],
+    },
     {
         languageOptions: {
             parserOptions: {
@@ -56,5 +66,6 @@ export default [
         },
     },
     // ... any other configs, including presets from this package
+    andrewaylett.configs.recommendedWithReactWithTypes,
 ];
 ```

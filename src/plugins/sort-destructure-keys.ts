@@ -1,5 +1,5 @@
 import { rules } from 'eslint-plugin-sort-destructure-keys';
-import { ESLint } from 'eslint';
+import { type ESLint } from 'eslint';
 
 export default {
     rules,

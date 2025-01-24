@@ -1,4 +1,4 @@
-import { type ESLint, Linter } from 'eslint';
+import { type ESLint, type Linter } from 'eslint';
 
 import packageJson from '../package.json' with { type: 'json' };
 
@@ -102,4 +102,6 @@ export const sharedConfigs = {
 plugin.configs = sharedConfigs;
 
 // noinspection JSUnusedGlobalSymbols
-export default plugin as Readonly<ESLint.Plugin & { configs: typeof sharedConfigs }>;
+export default plugin as Readonly<
+    ESLint.Plugin & { configs: typeof sharedConfigs }
+>;

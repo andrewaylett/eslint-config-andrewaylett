@@ -10,8 +10,8 @@
   },
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "repository": {
@@ -38,7 +38,6 @@
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.31.0",
     "@tsconfig/node22": "22.0.2",
-    "@types/eslint": "9.6.1",
     "@types/jest": "30.0.0",
     "@types/node": "22.16.5",
     "@types/semver": "7.7.0",
