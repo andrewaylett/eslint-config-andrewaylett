@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.0",
-    "@eslint/js": "9.20.0",
+    "@eslint/js": "9.21.0",
     "@tsconfig/node20": "20.1.4",
     "@types/eslint": "9.6.1",
     "@types/eslint__eslintrc": "2.1.2",
@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "8.24.1",
     "@typescript-eslint/parser": "8.24.1",
     "downgrade-build": "1.0.0",
-    "eslint": "9.20.1",
+    "eslint": "9.21.0",
     "eslint-config-prettier": "10.0.1",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-import": "2.31.0",
