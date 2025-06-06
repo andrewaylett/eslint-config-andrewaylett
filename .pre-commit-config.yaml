@@ -36,6 +36,7 @@ repos:
     exclude_types:
     - json
     - yaml
+    - ts
 - repo: https://github.com/rhysd/actionlint
   rev: v1.7.7
   hooks:
@@ -46,8 +47,15 @@ repos:
   - id: yamlfmt
 - repo: local
   hooks:
-  - id: dedupe
+  - id: npm-dedupe
     name: npm dedupe
-    files: package\.json|package-lock\.json
+    files: package-lock\.json
     language: system
     entry: npm dedupe
+    pass_filenames: false
+  - id: npm-lint
+    name: npm lint
+    files: \.[cm]?[tj]sx?$
+    language: system
+    entry: npm run lint:fix
+    pass_filenames: false

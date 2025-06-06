@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "outDir": "../dist",
-    "tsBuildInfoFile": "../build/src.tsBuildInfo"
+    "tsBuildInfoFile": "../build/src.tsBuildInfo",
+    "typeRoots": [
+      "../node_modules/@types",
+      "./types"
+    ]
   },
   "extends": "..",
   "include": [
