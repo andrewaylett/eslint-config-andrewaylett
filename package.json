@@ -26,6 +26,7 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "postbuild": "prepackage-checks",
+    "postlint": "npm run buildonly",
     "prebuild": "npm run test",
     "prelint": "npm run buildonly",
     "prepare": "npm run clean && npm run buildonly",

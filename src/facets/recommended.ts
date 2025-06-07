@@ -1,4 +1,3 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import js from '@eslint/js';
 import unicorn from 'eslint-plugin-unicorn';
 import prettier_required from 'eslint-plugin-prettier/recommended';
@@ -9,7 +8,7 @@ import sortDestructureKeys from '../plugins/sort-destructure-keys.js';
 
 import { importRules } from './import.js';
 
-const recommended: FlatConfig.Config = merge('recommended', [
+const recommended = merge('recommended', [
     js.configs.recommended,
     unicorn.configs.recommended,
     importRules,

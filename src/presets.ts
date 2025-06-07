@@ -1,9 +1,9 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+import { Linter } from 'eslint';
 
 type WithJest = 'WithJest' | '';
 type WithReact = 'WithReact' | '';
 type Typescript = 'WithoutTypescript' | 'WithTypes' | '';
 
-type Recommended = `recommended${WithJest}${WithReact}${Typescript}`;
+export type Recommended = `recommended${WithJest}${WithReact}${Typescript}`;
 
-export type Configs = Record<Recommended, FlatConfig.Config>;
+export type Configs = Record<Recommended, Linter.Config>;

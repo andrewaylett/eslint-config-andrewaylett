@@ -1,6 +1,5 @@
 declare module '@eslint-community/eslint-plugin-eslint-comments/configs' {
-    import { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+    import { Linter } from 'eslint';
 
-    import Config = FlatConfig.Config;
-    declare const recommended: Config;
+    declare const recommended: Linter.Config;
 }
