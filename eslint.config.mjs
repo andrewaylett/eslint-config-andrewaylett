@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import eslintConfigAndrewAylett from './dist/index.js';
 import globals from 'globals';
+
+import eslintConfigAndrewAylett from './dist/index.js';
 
 // noinspection JSUnusedGlobalSymbols
 /**

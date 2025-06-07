@@ -1,8 +1,8 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+import { type ESLint, Linter } from 'eslint';
 
 import packageJson from '../package.json' with { type: 'json' };
 
-import { type Configs } from './presets.js';
+import { type Configs, Recommended } from './presets.js';
 import { noEnumRule } from './rules/no-enum.js';
 import recommendedConfig from './facets/recommended.js';
 import { mergeConfig } from './merge.js';
@@ -12,7 +12,7 @@ import react from './facets/react.js';
 
 const plugin = {
     meta: {
-        name: 'andrewaylett',
+        name: 'eslint-config-andrewaylett',
         version: packageJson.version,
     } as const,
     configs: {} as Partial<Configs>,
@@ -20,9 +20,9 @@ const plugin = {
         'no-enum': noEnumRule,
     } as const,
     processors: {} as const,
-} satisfies FlatConfig.Plugin;
+} satisfies ESLint.Plugin;
 
-const LOCAL: FlatConfig.Config = {
+const LOCAL: Linter.Config = {
     plugins: {
         andrewaylett: plugin,
     },
@@ -31,7 +31,7 @@ const LOCAL: FlatConfig.Config = {
     },
 } as const;
 
-const sharedConfigs = {
+export const sharedConfigs = {
     ...mergeConfig('recommended', [LOCAL, recommendedConfig, typescript]),
     ...mergeConfig('recommendedWithTypes', [
         LOCAL,
@@ -96,10 +96,10 @@ const sharedConfigs = {
         typescript,
         jestConfigs,
     ]),
-} as const satisfies Configs & FlatConfig.SharedConfigs;
+} as const satisfies Configs;
 
 // assign configs here so we can reference `plugin`
 plugin.configs = sharedConfigs;
 
 // noinspection JSUnusedGlobalSymbols
-export default plugin as Readonly<FlatConfig.Plugin & { configs: Configs }>;
+export default plugin as Readonly<ESLint.Plugin & { configs: typeof sharedConfigs }>;

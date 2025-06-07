@@ -1,6 +1,6 @@
-import { createRule } from './base.js';
+import { Rule } from 'eslint';
 
-export const noEnumRule = createRule({
+export const noEnumRule: Rule.RuleModule = {
     create(context) {
         return {
             TSEnumDeclaration(node) {
@@ -11,7 +11,6 @@ export const noEnumRule = createRule({
             },
         };
     },
-    name: 'no-enum',
     meta: {
         docs: {
             description: 'Disallow the use of enums',
@@ -23,5 +22,4 @@ export const noEnumRule = createRule({
         type: 'problem',
         schema: [],
     },
-    defaultOptions: [],
-});
+};

@@ -1,9 +1,9 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import importPlugin from 'eslint-plugin-import';
+import { Linter } from 'eslint';
 
 import { merge } from '../merge.js';
 
-export const importRules: FlatConfig.Config = merge('import', [
+export const importRules: Linter.Config = merge('import', [
     importPlugin.flatConfigs.recommended,
     {
         rules: {
@@ -57,7 +57,7 @@ export const importRules: FlatConfig.Config = merge('import', [
     },
 ]);
 
-export const importTsRules: FlatConfig.Config = merge('import-typescript', [
+export const importTsRules: Linter.Config = merge('import-typescript', [
     importPlugin.flatConfigs.typescript,
     {
         rules: {

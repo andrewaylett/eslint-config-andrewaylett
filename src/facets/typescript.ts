@@ -4,10 +4,11 @@ import tseslint from 'typescript-eslint';
 import { merge } from '../merge.js';
 
 import { importTsRules } from './import.js';
+import { Linter } from 'eslint';
 
-export const typescript: FlatConfig.Config = merge('typescript', [
-    ...tseslint.configs.strict,
-    ...tseslint.configs.stylistic,
+export const typescript = merge('typescript', [
+    ...(tseslint.configs.strict as Linter.Config[]),
+    ...(tseslint.configs.stylistic as Linter.Config[]),
     importTsRules,
     {
         rules: {
@@ -27,11 +28,11 @@ export const typescript: FlatConfig.Config = merge('typescript', [
     },
 ]);
 
-export const typescriptTyped: FlatConfig.Config = merge(
+export const typescriptTyped = merge(
     'typescript-with-types',
     [
-        ...tseslint.configs.strictTypeCheckedOnly,
-        ...tseslint.configs.stylisticTypeCheckedOnly,
+        ...(tseslint.configs.strictTypeCheckedOnly as Linter.Config[]),
+        ...(tseslint.configs.stylisticTypeCheckedOnly as Linter.Config[]),
         {
             // No customisation at present
             rules: {},

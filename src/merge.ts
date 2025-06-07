@@ -1,11 +1,10 @@
-import { type FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-
-import { type Configs } from './presets.js';
+import { Recommended } from './presets.js';
+import { Linter } from 'eslint';
 
 export function merge(
     name: string,
-    configArray: FlatConfig.ConfigArray,
-): FlatConfig.Config {
+    configArray: Linter.Config[],
+): Linter.Config {
     // eslint-disable-next-line unicorn/no-array-reduce
     const accumulated = configArray.reduce(
         (acc, config) => {
@@ -15,25 +14,23 @@ export function merge(
                 ...acc.languageOptions,
                 ...config.languageOptions,
             };
-            acc.files = [...(acc.files ?? []), ...(config.files ?? [])];
             return acc;
         },
         {
             plugins: {},
             rules: {},
             languageOptions: {},
-            files: [],
-        } satisfies FlatConfig.Config,
+        } satisfies Linter.Config,
     );
 
     accumulated.name = name;
     return accumulated;
 }
 
-export function mergeConfig<K extends keyof Configs>(
+export function mergeConfig<K extends Recommended>(
     key: K,
-    configArray: FlatConfig.ConfigArray,
-): Pick<Configs, K> {
+    configArray: Linter.Config[],
+): { [J in K]: Linter.Config } {
     const mergedConfig = merge(key, configArray);
-    return { [key]: mergedConfig } as Pick<Configs, K>;
+    return { [key]: mergedConfig } as { [J in K]: Linter.Config };
 }
