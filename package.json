@@ -57,7 +57,7 @@
     "eslint-plugin-typescript-enum": "2.1.0",
     "eslint-plugin-unicorn": "59.0.1",
     "globals": "16.2.0",
-    "jest": "30.0.0",
+    "jest": "30.0.1",
     "prepackage-checks": "0.2.0",
     "prettier": "3.5.3",
     "semver": "7.7.2",
