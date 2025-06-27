@@ -59,7 +59,7 @@
     "globals": "16.2.0",
     "jest": "30.0.3",
     "prepackage-checks": "0.2.0",
-    "prettier": "3.6.1",
+    "prettier": "3.6.2",
     "semver": "7.7.2",
     "typescript": "5.8.3",
     "typescript-eslint": "8.35.0"
