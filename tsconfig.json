@@ -3,9 +3,11 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "isolatedModules": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "tsBuildInfoFile": "build/base.tsBuildInfo"
+    "tsBuildInfoFile": "build/base.tsBuildInfo",
+    "verbatimModuleSyntax": true
   },
   "extends": "@tsconfig/node22/tsconfig.json",
   "files": [],

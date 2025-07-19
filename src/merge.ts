@@ -1,4 +1,4 @@
-import { Recommended } from './presets.js';
+import { type Recommended } from './presets.js';
 import { Linter } from 'eslint';
 
 export function merge(
