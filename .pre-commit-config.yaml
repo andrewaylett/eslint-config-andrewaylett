@@ -20,6 +20,8 @@ repos:
     - --autofix
     - --top-keys
     - name,description,version,author,license,type,engines,exports,repository,scripts,dependencies,devDependencies,peerDependencies
+  - id: check-xml
+  - id: forbid-submodules
 - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
   rev: 3.2.1
   hooks:
@@ -45,6 +47,10 @@ repos:
   rev: v0.17.2
   hooks:
   - id: yamlfmt
+- repo: https://github.com/andrewaylett/pre-commit-hooks
+  rev: v0.6.2
+  hooks:
+  - id: init-hooks
 - repo: local
   hooks:
   - id: npm-dedupe
@@ -59,3 +65,14 @@ repos:
     language: system
     entry: npm run lint:fix
     pass_filenames: false
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.33.2
+  hooks:
+  - id: check-github-workflows
+  - id: check-renovate
+- repo: https://github.com/renovatebot/pre-commit-hooks
+  rev: 41.23.5
+  hooks:
+  - id: renovate-config-validator
+    args:
+    - --strict
