@@ -9,6 +9,7 @@ insert_final_newline = true
 max_line_length = 80
 tab_width = 4
 trim_trailing_whitespace = true
+ij_yaml_indent_sequence_value = false
 
 [{*.json,*.yml,*.yaml}]
 indent_size = 2

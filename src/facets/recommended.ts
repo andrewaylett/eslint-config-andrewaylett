@@ -48,6 +48,10 @@ const recommended = merge('recommended', [
             'no-use-before-define': ['off'],
             'unicorn/prevent-abbreviations': ['off'],
             'unicorn/consistent-function-scoping': ['off'],
+            'unicorn/filename-case': ['off'],
+            'unicorn/no-null': ['off'],
+            'unicorn/no-await-expression-member': ['off'],
+            'unicorn/import-style': ['off'],
         },
     },
 ]);

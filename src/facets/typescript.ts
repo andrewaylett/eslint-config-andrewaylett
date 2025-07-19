@@ -18,6 +18,15 @@ export const typescript = merge('typescript', [
                     varsIgnorePattern: '^_',
                 },
             ],
+        },
+    },
+]);
+
+export const typescriptTyped = merge('typescript-with-types', [
+    ...(tseslint.configs.strictTypeCheckedOnly as Linter.Config[]),
+    ...(tseslint.configs.stylisticTypeCheckedOnly as Linter.Config[]),
+    {
+        rules: {
             '@typescript-eslint/consistent-type-exports': 'error',
             '@typescript-eslint/consistent-type-imports': [
                 'error',
@@ -31,14 +40,5 @@ export const typescript = merge('typescript', [
                 },
             ],
         },
-    },
-]);
-
-export const typescriptTyped = merge('typescript-with-types', [
-    ...(tseslint.configs.strictTypeCheckedOnly as Linter.Config[]),
-    ...(tseslint.configs.stylisticTypeCheckedOnly as Linter.Config[]),
-    {
-        // No customisation at present
-        rules: {},
     },
 ]);
