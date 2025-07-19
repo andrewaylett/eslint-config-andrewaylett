@@ -41,6 +41,11 @@ export default [
     },
     eslintConfigAndrewAylett.configs.recommendedWithTypes,
     {
-        ignores: ['dist/**', 'build/**'],
+        ignores: [
+            'dist/**',
+            'build/**',
+            'test/failing/**',
+            'test/successful/**',
+        ],
     },
 ];

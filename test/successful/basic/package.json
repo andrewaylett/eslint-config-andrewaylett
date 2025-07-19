@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "type": "module",
+  "name": "basic",
+  "version": "1.0.0",
+  "devDependencies": {
+    "eslint": "^9"
+  }
+}
