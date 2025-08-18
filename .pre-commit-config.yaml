@@ -65,7 +65,7 @@ repos:
     entry: npm run lint:fix
     pass_filenames: false
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.33.2
+  rev: 0.33.3
   hooks:
   - id: check-github-workflows
   - id: check-renovate
