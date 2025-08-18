@@ -47,7 +47,7 @@ repos:
   hooks:
   - id: yamlfmt
 - repo: https://github.com/andrewaylett/pre-commit-hooks
-  rev: v0.6.2
+  rev: v0.6.3
   hooks:
   - id: init-hooks
 - repo: local
