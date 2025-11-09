@@ -22,6 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-    - uses: andrewaylett/pre-commit-action@06e6910110806ba43a3411daff9662680025606c # v4
+    - uses: andrewaylett/pre-commit-action@ca5eb1fa12386112b3d93556c176e97197d35975 # v4
       env:
         SKIP: npm-dedupe,npm-lint
