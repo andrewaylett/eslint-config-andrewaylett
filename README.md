@@ -58,7 +58,6 @@ export default [
     {
         languageOptions: {
             parserOptions: {
-                project: true,
                 projectService: {
                     allowDefaultProject: ['*.js', '*.mjs', 'jest.config.ts'],
                 },
