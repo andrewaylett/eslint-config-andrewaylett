@@ -8,7 +8,7 @@ export default merge('react', [
         ...react.configs.flat.recommended,
         settings: { react: { version: 'detect' } },
     },
-    reactHooks.configs['recommended-latest'],
+    reactHooks.configs.flat.recommended,
     {
         rules: {
             'react/no-unescaped-entities': [
