@@ -36,7 +36,7 @@
     "test": "npm run test-in-build && npm run downgrade-build"
   },
   "devDependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "4.5.0",
+    "@eslint-community/eslint-plugin-eslint-comments": "4.6.0",
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
     "@tsconfig/node24": "24.0.0",
