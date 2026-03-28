@@ -7,7 +7,6 @@ dist
 *~
 .*.swp
 .parcel-cache
-.tool-versions
 .npmrc
 
 tsconfig.tsbuildinfo
