@@ -1,7 +1,6 @@
 declare module 'eslint-plugin-sort-destructure-keys' {
-    import { type Linter } from 'eslint';
+    import type { ESLint } from 'eslint';
 
-    export const rules: {
-        'sort-destructure-keys': Linter.RuleModule;
-    };
+    const plugin: ESLint.Plugin;
+    export default plugin;
 }

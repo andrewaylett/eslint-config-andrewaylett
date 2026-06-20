@@ -52,6 +52,20 @@ The package produces a single ESLint plugin (`eslint-config-andrewaylett`) with 
 
 Tests use `test-in-build` and `downgrade-build` to validate that the published package works correctly with its declared peer dependency ranges. Test fixtures live in `test/successful/` and `test/failing/`.
 
+Each fixture needs an `eslint.config.mjs`, `expect.cjs`, and `package.json`. Fixtures that lint TypeScript files must spread the config with an explicit `files: ["src/**/*.ts"]` pattern (ESLint v9 does not discover `.ts` files by default), e.g.:
+
+```js
+export default [
+    { ...eslintConfigAndrewAylett.configs.recommended, files: ['src/**/*.ts'] },
+];
+```
+
+Fixtures using `recommendedWithTypes` additionally need:
+
+-   A `languageOptions.parserOptions.projectService: true` config object — the config does **not** include this; consumers must add it themselves.
+-   A `tsconfig.json` with `"moduleResolution": "bundler"` so the project service can resolve `.js`→`.ts` imports. Without `bundler` resolution, TypeScript cannot find `.ts` files imported with `.js` extensions, and the project service will fail.
+-   `"typescript": "^5"` in `devDependencies`.
+
 ## Style
 
 -   Prettier: semicolons, single quotes, trailing commas.

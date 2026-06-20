@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "exports": {
     ".": {
@@ -36,45 +36,45 @@
     "test": "npm run test-in-build && npm run downgrade-build"
   },
   "devDependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "4.6.0",
-    "@eslint/eslintrc": "3.3.3",
-    "@eslint/js": "9.39.2",
-    "@tsconfig/node24": "24.0.0",
+    "@eslint-community/eslint-plugin-eslint-comments": "4.7.2",
+    "@eslint/eslintrc": "3.3.5",
+    "@eslint/js": "9.39.4",
+    "@tsconfig/node24": "24.0.4",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.13",
     "@types/semver": "7.7.1",
-    "@typescript-eslint/eslint-plugin": "8.55.0",
-    "@typescript-eslint/parser": "8.55.0",
-    "@typescript-eslint/utils": "8.55.0",
-    "baseline-browser-mapping": "2.9.19",
+    "@typescript-eslint/eslint-plugin": "8.61.1",
+    "@typescript-eslint/parser": "8.61.1",
+    "@typescript-eslint/utils": "8.61.1",
+    "baseline-browser-mapping": "2.10.38",
     "downgrade-build": "1.0.0",
-    "eslint": "9.39.2",
+    "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-jest": "29.15.0",
-    "eslint-plugin-prettier": "5.5.5",
+    "eslint-plugin-jest": "29.15.2",
+    "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-sort-destructure-keys": "2.0.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-sort-destructure-keys": "3.0.0",
     "eslint-plugin-typescript-enum": "2.1.0",
-    "eslint-plugin-unicorn": "62.0.0",
-    "globals": "16.5.0",
-    "jest": "30.2.0",
+    "eslint-plugin-unicorn": "65.0.1",
+    "globals": "17.6.0",
+    "jest": "30.4.2",
     "prepackage-checks": "0.2.0",
-    "prettier": "3.8.1",
-    "semver": "7.7.4",
+    "prettier": "3.8.4",
+    "semver": "7.8.5",
     "test-in-build": "0.2.0",
-    "tsx": "4.21.0",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.55.0"
+    "tsx": "4.22.4",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.61.1"
   },
   "peerDependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.28.0",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "@typescript-eslint/parser": "^8.33.1",
-    "@typescript-eslint/utils": "^8.33.1",
+    "@typescript-eslint/eslint-plugin": "^8.61.1",
+    "@typescript-eslint/parser": "^8.61.1",
+    "@typescript-eslint/utils": "^8.61.1",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-import": "^2.31.0",
@@ -82,13 +82,18 @@
     "eslint-plugin-prettier": "^5.4.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-sort-destructure-keys": "^2.0.0",
-    "eslint-plugin-unicorn": ">=59 <63",
+    "eslint-plugin-sort-destructure-keys": "^3.0.0",
+    "eslint-plugin-unicorn": ">=59 <66",
     "typescript-eslint": "^8.37.0"
   },
   "prettier": {
     "semi": true,
     "singleQuote": true,
     "trailingComma": "all"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "unrs-resolver@1.12.2": true
   }
 }

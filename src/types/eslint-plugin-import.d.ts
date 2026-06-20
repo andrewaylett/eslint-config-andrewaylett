@@ -1,5 +1,5 @@
 declare module 'eslint-plugin-import' {
-    import { type Linter } from 'eslint';
+    import type { Linter } from 'eslint';
 
     export const rules: {
         'no-unresolved': Linter.RuleEntry;

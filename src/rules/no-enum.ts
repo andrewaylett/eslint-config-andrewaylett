@@ -1,4 +1,4 @@
-import { type Rule, type JSSyntaxElement } from 'eslint';
+import type { Rule, JSSyntaxElement } from 'eslint';
 
 export const noEnumRule: Rule.RuleModule = {
     create(context) {
