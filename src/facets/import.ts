@@ -1,15 +1,25 @@
 import importPlugin from 'eslint-plugin-import';
-import { type Linter } from 'eslint';
 
 import { merge } from '../merge.js';
+
+import type { Linter } from 'eslint';
 
 export const importRules: Linter.Config = merge('import', [
     importPlugin.flatConfigs.recommended,
     {
         rules: {
+            'import/no-duplicates': ['error', { 'prefer-inline': true }],
+            'import/no-extraneous-dependencies': [
+                'error',
+                {
+                    devDependencies: [
+                        '**/*.{test,spec}.{m,}{t,j}s{x,}',
+                        '*.{m,}{t,j}s',
+                        '**/test/**',
+                    ],
+                },
+            ],
             'import/no-unresolved': ['off'],
-            'import/prefer-default-export': ['off'],
-            'no-duplicate-imports': ['error', { includeExports: true }],
             'import/order': [
                 'error',
                 {
@@ -24,14 +34,14 @@ export const importRules: Linter.Config = merge('import', [
                     'newlines-between': 'always',
                     pathGroups: [
                         {
+                            group: 'external',
                             pattern:
                                 '{react,react-dom,react-dom/server,prop-types}',
-                            group: 'external',
                             position: 'before',
                         },
                         {
-                            pattern: '{*.scss,*.css}',
                             group: 'type',
+                            pattern: '{*.scss,*.css}',
                             patternOptions: { matchBase: true },
                             position: 'after',
                         },
@@ -43,16 +53,8 @@ export const importRules: Linter.Config = merge('import', [
                     ],
                 },
             ],
-            'import/no-extraneous-dependencies': [
-                'error',
-                {
-                    devDependencies: [
-                        '**/*.{test,spec}.{m,}{t,j}s{x,}',
-                        '*.{m,}{t,j}s',
-                        '**/test/**',
-                    ],
-                },
-            ],
+            'import/prefer-default-export': ['off'],
+            'no-duplicate-imports': ['error', { includeExports: true }],
         },
     },
 ]);
@@ -62,8 +64,8 @@ export const importTsRules: Linter.Config = merge('import-typescript', [
     {
         rules: {
             'import/consistent-type-specifier-style': [
-                'error',
-                'prefer-inline',
+                'off',
+                'prefer-top-level',
             ],
         },
     },

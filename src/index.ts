@@ -1,14 +1,14 @@
-import { type ESLint, type Linter } from 'eslint';
-
 import packageJson from '../package.json' with { type: 'json' };
 
-import { type Configs } from './presets.js';
 import { noEnumRule } from './rules/no-enum.js';
 import recommendedConfig from './facets/recommended.js';
 import { mergeConfig } from './merge.js';
 import { typescript, typescriptTyped } from './facets/typescript.js';
 import jestConfigs from './facets/jest.js';
 import react from './facets/react.js';
+
+import type { Configs } from './presets.js';
+import type { ESLint, Linter } from 'eslint';
 
 const plugin = {
     meta: {

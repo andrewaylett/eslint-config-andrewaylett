@@ -2,9 +2,9 @@ import js from '@eslint/js';
 import unicorn from 'eslint-plugin-unicorn';
 import prettier_required from 'eslint-plugin-prettier/recommended';
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
+import sortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
 
 import { merge } from '../merge.js';
-import sortDestructureKeys from '../plugins/sort-destructure-keys.js';
 
 import { importRules } from './import.js';
 
@@ -17,7 +17,6 @@ const recommended = merge('recommended', [
     { plugins: { 'sort-destructure-keys': sortDestructureKeys } },
     {
         rules: {
-            'prettier/prettier': 'error',
             '@eslint-community/eslint-comments/disable-enable-pair': [
                 'warn',
                 { allowWholeFile: true },
@@ -27,31 +26,35 @@ const recommended = merge('recommended', [
             '@eslint-community/eslint-comments/no-unlimited-disable': ['warn'],
             '@eslint-community/eslint-comments/no-unused-disable': ['warn'],
             '@eslint-community/eslint-comments/no-unused-enable': ['warn'],
+            curly: ['error', 'all'],
             'no-restricted-syntax': [
                 'error',
                 {
-                    selector: 'ForInStatement',
                     message:
                         'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+                    selector: 'ForInStatement',
                 },
                 {
-                    selector: 'LabeledStatement',
                     message:
                         'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+                    selector: 'LabeledStatement',
                 },
                 {
-                    selector: 'WithStatement',
                     message:
                         '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+                    selector: 'WithStatement',
                 },
             ],
             'no-use-before-define': ['off'],
-            'unicorn/prevent-abbreviations': ['off'],
+            'prettier/prettier': 'error',
             'unicorn/consistent-function-scoping': ['off'],
             'unicorn/filename-case': ['off'],
-            'unicorn/no-null': ['off'],
-            'unicorn/no-await-expression-member': ['off'],
             'unicorn/import-style': ['off'],
+            'unicorn/no-array-reverse': ['off'],
+            'unicorn/no-array-sort': ['off'],
+            'unicorn/no-await-expression-member': ['off'],
+            'unicorn/no-null': ['off'],
+            'unicorn/prevent-abbreviations': ['off'],
         },
     },
 ]);

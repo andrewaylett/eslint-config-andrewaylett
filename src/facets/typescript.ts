@@ -1,9 +1,10 @@
 import tseslint from 'typescript-eslint';
-import { type Linter } from 'eslint';
 
 import { merge } from '../merge.js';
 
 import { importTsRules } from './import.js';
+
+import type { Linter } from 'eslint';
 
 export const typescript = merge('typescript', [
     ...(tseslint.configs.strict as Linter.Config[]),
@@ -11,6 +12,8 @@ export const typescript = merge('typescript', [
     importTsRules,
     {
         rules: {
+            '@typescript-eslint/no-import-type-side-effects': 'error',
+            '@typescript-eslint/no-inferrable-types': 'off',
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 {
@@ -35,8 +38,8 @@ export const typescriptTyped = merge('typescript-with-types', [
             '@typescript-eslint/restrict-template-expressions': [
                 'error',
                 {
-                    allowNumber: true,
                     allowBoolean: true,
+                    allowNumber: true,
                 },
             ],
         },

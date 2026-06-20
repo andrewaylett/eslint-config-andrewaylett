@@ -11,17 +11,18 @@ export default merge('react', [
     reactHooks.configs.flat.recommended,
     {
         rules: {
+            'react/jsx-uses-react': 'off',
             'react/no-unescaped-entities': [
                 'error',
                 {
                     forbid: [
                         {
-                            char: '>',
                             alternatives: ['&gt;'],
+                            char: '>',
                         },
                         {
-                            char: '}',
                             alternatives: ['&#125;'],
+                            char: '}',
                         },
                     ],
                 },
@@ -30,6 +31,7 @@ export default merge('react', [
                 'error',
                 { ignore: ['property', 'resource', 'typeof', 'vocab'] },
             ],
+            'react/react-in-jsx-scope': 'off',
             'react-hooks/exhaustive-deps': 'error',
         },
     },
