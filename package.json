@@ -57,7 +57,7 @@
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-sort-destructure-keys": "3.0.0",
     "eslint-plugin-typescript-enum": "2.1.0",
-    "eslint-plugin-unicorn": "65.0.1",
+    "eslint-plugin-unicorn": "69.0.0",
     "globals": "17.7.0",
     "jest": "30.4.2",
     "prepackage-checks": "0.2.0",
@@ -83,7 +83,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-sort-destructure-keys": "^3.0.0",
-    "eslint-plugin-unicorn": ">=59 <66",
+    "eslint-plugin-unicorn": ">=59 <70",
     "typescript-eslint": "^8.37.0"
   },
   "prettier": {
