@@ -46,7 +46,7 @@
     "@typescript-eslint/eslint-plugin": "8.62.1",
     "@typescript-eslint/parser": "8.62.1",
     "@typescript-eslint/utils": "8.62.1",
-    "baseline-browser-mapping": "2.10.40",
+    "baseline-browser-mapping": "2.10.41",
     "downgrade-build": "1.0.0",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
