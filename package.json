@@ -43,9 +43,9 @@
     "@types/jest": "30.0.0",
     "@types/node": "24.13.3",
     "@types/semver": "7.7.1",
-    "@typescript-eslint/eslint-plugin": "8.63.0",
-    "@typescript-eslint/parser": "8.63.0",
-    "@typescript-eslint/utils": "8.63.0",
+    "@typescript-eslint/eslint-plugin": "8.64.0",
+    "@typescript-eslint/parser": "8.64.0",
+    "@typescript-eslint/utils": "8.64.0",
     "baseline-browser-mapping": "2.10.43",
     "downgrade-build": "1.0.0",
     "eslint": "9.39.5",
@@ -66,7 +66,7 @@
     "test-in-build": "0.2.0",
     "tsx": "4.23.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.63.0"
+    "typescript-eslint": "8.64.0"
   },
   "peerDependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
