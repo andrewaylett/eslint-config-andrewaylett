@@ -9,7 +9,7 @@ jobs:
         # Supported LTS and current
         node: ['22.x', '24.x', '26.x']
     steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
     - name: Use Node.js ${{ matrix.node }}
       uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
       with:
@@ -21,7 +21,7 @@ jobs:
     name: Pre-Commit
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
     - uses: andrewaylett/pre-commit-action@1e20fe009329d72784d68dc71e3c695ac90199de # v4
       env:
         SKIP: npm-dedupe,npm-lint
